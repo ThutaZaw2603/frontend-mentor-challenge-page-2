@@ -1,0 +1,179 @@
+@use 'scss/util/util' as U;
+
+@use 'scss/component/component' as C;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+body{
+    min-height: 100vh;  
+    width: 100%;
+}
+
+header{
+
+    width: 100%;
+    padding-bottom: 30px;
+    nav{
+        @include C.navStyle; 
+    }  
+    article{
+        @include C.headDiv;
+    }      
+}
+
+main{
+    @include C.mainDiv;
+    .bg{
+        @include C.mainBg;
+    }
+    .shortenDiv{
+        form{
+            @include C.shortenDiv;
+        }   
+    }
+    .output{
+        @include C.output;
+    }
+}
+
+section{
+    background: U.$bg-color;
+    .sectionHeader{
+        @include C.sectionHeader;
+    }
+    .sectionCard{
+        @include C.sectionCard;
+    }
+}
+
+footer{
+    background: U.$Dark-blue;
+    .between{
+        @include C.between;
+    }
+    .getStarted{
+        
+        @include C.getStart;
+    }
+    .contact{
+        @include C.contact;
+    }
+}
+
+
+//ipad mini
+@media screen and (min-width: 601px) and (max-width:780px) {
+    header{
+        nav{
+            @include C.tabletNav;
+        }
+        article{
+            @include C.tabletHeadDiv;
+        }
+    }
+    section{
+        .sectionCard{
+            @include C.tabletSectionCard;
+        }
+    }
+    footer{
+        .contact{
+            @include C.tabletContact;
+        }
+    }
+}
+
+//medium screen 
+@media screen and (min-width: 431px) and (max-width:600px){
+    header{
+        nav{
+            @include C.phoneNav(90%);       
+        }
+        article{
+            @include C.tabletHeadDiv;
+
+        }
+    }
+    main{
+        .shortenDiv{
+            form{
+                @include C.tabletShorten(2rem);
+            }
+            
+        }
+        .bg{
+            height: 10rem;
+        }
+        .output{
+            @include C.tabletOutput;
+        }
+    }
+    section{
+        .sectionCard{
+            @include C.mediumSectionCard;
+        }
+    }
+}
+
+//phone
+@media screen and (max-width:430px) {
+    header{
+        nav{
+            @include C.phoneNav(80%);       
+        }
+        article{
+            @include C.phoneHeadDiv;
+        }
+    }
+    main{
+        .bg{
+            height: 10rem;
+        }
+        .shortenDiv{
+            form{
+                @include C.phoneShorten(1.2rem);
+            }
+            
+        }
+        .output{
+            @include C.phoneOutput;
+        }
+    }
+    section{
+        .sectionHeader{
+            @include C.phoneSectionHeader;
+        }
+        .sectionCard{
+            @include C.phoneSectionCard;
+        }
+        
+    }
+    footer{
+        .getStarted{
+            @include C.phoneGetStart;
+        }
+    }
+    
+}
+
+
+@media screen and (min-width: 431px) and (max-width:600px), (max-width:430px){
+
+    
+    footer{
+        .contact{
+            @include C.phoneContact;
+        }
+    }
+}
+

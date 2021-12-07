@@ -1,0 +1,123 @@
+@use '../util/util' as *;
+
+@mixin between {
+    height: 8rem;
+    background: $bg-color;
+    margin: 0;
+    padding:0;
+    border: none;
+}
+
+@mixin getStart {
+   
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 12rem;
+    justify-content: center;
+    align-items: center;
+    background:$primary-color2 url('../../images/bg-boost-desktop.svg') no-repeat top;
+    h1{
+        color:white;
+        padding:20px;
+    }
+    button{
+        @include makeBtn(12rem,3rem);
+        font-size: $n-font-size;
+    }
+}
+
+@mixin phoneGetStart {
+
+    h1{
+        font-size: 25px;
+    }
+}
+
+@mixin contact {
+    background: $Dark-blue;
+    color: $hover-color;
+    height: 20rem;
+    display: grid;
+    padding: 10px 20px;
+    margin:0px clamp(0.9rem, -13.1000rem + 28.0000vw, 3rem);
+    align-content: center;
+    grid-template-columns: 30% repeat(4,1fr);
+    .footerLogo{
+        display: flex;
+        align-items: center;
+    }
+    ul{
+        list-style-type: none;
+        li:first-child{
+            color:white;
+            padding: 20px 0;
+            font-size: $sm-font-size;
+        }
+        li{
+            cursor: pointer;
+            padding:5px 0;
+            font-size: $x-font-size;
+        }
+        li:hover{
+            color: $primary-color1;
+        }
+    }
+    .social{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        li{
+
+            height: 24px;
+            padding:20px 0px;
+            margin:0 10px;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+@mixin tabletContact {
+    grid-template-columns: 25% repeat(3,1fr) 10%;
+    padding:0;
+    margin:0 0 0 10px;
+    ul{
+        padding:20px 0px ;
+        li:first-child{
+            font-size: 14px;
+        }
+        li{
+            font-size: 12px;
+        }
+    }
+    .social{
+        flex-wrap: wrap;
+        align-items: none;
+    }
+}
+
+@mixin phoneContact {
+    height: 50rem;
+    justify-content: center;
+    text-align: center;
+    grid-template-columns: none;
+    grid-template-rows: repeat(5,1fr);
+    .footerLogo{
+        justify-content: center;
+    }
+    ul{
+        li:first-child{
+            font-size: 18px;
+        }
+        li{
+            font-size: 16px;
+        }
+    }
+    .social{
+        padding-top: 20px;
+    }
+}

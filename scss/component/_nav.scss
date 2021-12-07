@@ -1,0 +1,145 @@
+@use '../util/util' as U;
+
+//flexMixin
+@mixin makeFlex($jc) {
+    display: flex;
+    justify-content:$jc;    
+    align-items: center; 
+    list-style-type: none;
+}
+
+//nav for desktop
+@mixin navStyle {
+   
+    ul{
+        margin:3px 30px;
+        @include makeFlex(space-between);  
+        font-weight: U.$m-font-weight ;
+        font-size: U.$sm-font-size ;
+        color:U.$hover-color;
+        .logo{
+            .logoLi{
+                margin-left: 0;
+                img{
+                    margin-top:7px;
+                    
+                }
+            }
+            li{
+                padding:20px;
+                padding-left: clamp(.5rem,1vw,1.2rem);
+                margin-left: clamp(0rem,.5vw,1.5rem);
+                
+                cursor: pointer;
+            }
+            li:hover{
+                color:U.$text-color;
+            }
+        }
+        .sign{
+            li{
+                padding:20px;
+                margin-right: clamp(0rem,1vw,1.5rem);
+                cursor: pointer;
+            }
+            button{
+                @include U.makeBtn(90px,40px);                                                 
+
+            }
+            li:hover{
+                color:U.$text-color;
+            }
+        }
+    }
+    .phone-nav{
+        display: none;
+    }
+    .close,.phoneItem{
+        display: none;
+    } 
+}
+
+//nav for mini tablet
+@mixin tabletNav {
+    ul{
+        margin:3px 0px;
+        padding: 0 0 0 15px;
+        .logo{
+            li{
+                font-size: clamp(0.8rem, 0.1285rem + 1.7877vw, 1rem);
+                margin-left: 0;
+            }
+        }
+        .sign{
+            padding-left: 0;
+            li{
+                margin-right: 0;
+                padding-left: 0;
+                font-size: clamp(0.8rem, 0.1285rem + 1.7877vw, 1rem);
+               
+            }
+            button{
+                @include U.makeBtn(80px,30px);                                                 
+
+            }
+        }
+    }
+    
+}
+
+//nav for phone
+@mixin phoneNav($width) {
+    //hide desktop-nav
+    .desktop-nav{
+        display: none;
+    }
+
+    .phone-nav{
+        margin:5px 30px;
+        padding:20px 10px;       
+        @include makeFlex(space-between);  
+        font-weight: U.$m-font-weight ;
+        font-size: U.$sm-font-size ;
+        color:U.$hover-color;
+        .burgericon{
+            margin-bottom: 10px;
+        }
+    }
+    
+    .close,.phoneItem{
+        display: none;
+    }   
+
+    //show when we click burger nav icon
+    .phoneItem.show{
+        @include makeFlex(center);  
+        padding:20px;
+        border-radius: 10px;
+        flex-direction: column; 
+        flex-wrap: wrap;
+        width: $width;    
+        cursor: pointer;
+        background:U.$primary-color2;
+        color:white;
+        
+        li{
+            padding:15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        hr{
+            width: 100%;
+            opacity: .2;
+        }
+        button{
+            @include U.makeBtn(200px,40px)
+        }
+            
+    }  
+    .close.show1{
+        display: block;
+    }
+    .open.hide{
+        display: none;
+    }
+}

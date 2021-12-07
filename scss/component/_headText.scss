@@ -1,0 +1,106 @@
+@use '../util/util' as U;
+
+@mixin headDiv {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin:10px 0px 0px 30px;
+    padding: 20px;
+    padding-right: 0;
+    min-height: 40vh;
+    .headText{
+        padding-left: clamp(.5rem,2vw,1.2rem);
+        display: flex;
+        flex-direction: column;
+        justify-content:center;       
+        h1{
+            text-align: left;
+            font-size: clamp(3rem, 1.3333rem + 3.3333vw, 4rem);
+            
+            letter-spacing: 1px;
+            line-height: clamp(3.5rem, 1.8333rem + 3.3333vw, 4.5rem);
+            
+            font-weight: U.$b-font-weight;
+            color: U.$text-color;
+        }
+        p{
+            color:U.$hover-color;
+            letter-spacing: 0px;
+            font-size: U.$n-font-size;
+        }
+        button{
+            @include U.makeBtn(160px,40px);
+            margin-top: 40px;
+        }
+    }
+
+    .headImg{
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content:center; 
+        img{    
+            width: clamp(30.5rem, 13.1840rem + 35.5200vw, 41.6rem);
+            overflow: hidden;
+            min-height: 320px;
+            max-height: 432px;
+        }
+    }
+}
+
+@mixin tabletHeadDiv {
+    margin:10px 0px 0px 0px;
+    .headText{
+        h1{
+            
+            font-size: clamp(2rem, -1.3333rem + 8.8889vw, 3rem);
+            line-height: clamp(2.5rem, 0.2500rem + 6.6667vw, 3.5rem);
+           
+        }
+        p{
+            font-size:U.$x-font-size;
+        }
+        .headImg{ 
+            img{
+                min-width:431px;
+                min-height:283px ;               
+            }
+        }
+    }
+}
+
+@mixin phoneHeadDiv {
+    margin:10px 0px 0px 0px;
+    padding: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2,1fr);
+    row-gap: 20px;
+    .headImg{
+       grid-row: 1/2;
+       img{
+           margin-left: 40px;
+           width: 431px;
+           height: 283px;
+       }
+    }
+    .headText{
+        grid-row: 2/3;
+        h1,p{
+            text-align: center;
+        }
+        h1{
+            letter-spacing: 0;
+            font-size: clamp(2rem, 0.5455rem + 7.2727vw, 2.5rem);
+            line-height: 2.5rem;
+        }
+        p{
+            font-size:18px;
+            padding:10px;
+        }
+        button{
+            margin:auto;
+            font-size: U.$n-font-size;
+            @include U.makeBtn(160px,45px);
+        }
+
+    }
+}

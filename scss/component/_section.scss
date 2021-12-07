@@ -1,0 +1,199 @@
+@use '../util/util' as U;
+
+@mixin sectionHeader {   
+    padding:2rem 20px 5rem 20px ;
+    display: flex;
+    flex-direction: column;
+  
+    align-items: center;
+    margin: auto;
+    text-align: center;
+    h1{
+        font-size: 2.5rem;
+        padding: 20px;
+        color:U.$Dark-blue;
+    }
+    p{
+        color: U.$hover-color;
+        width: 40%;
+    }
+}
+
+@mixin sectionCard {
+    position: relative;
+    height:clamp(25rem, 31.0000rem + -12.0000vw, 22rem);
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    margin:0 clamp(1rem, -7.0000rem + 16.0000vw, 5rem);
+    padding:1.5rem 0;
+    .line{
+        position:absolute;
+        background: U.$primary-color1;
+        width: 90%;
+        height: 10px;
+        top:45%;
+    }
+    .card{
+        position: relative;
+        border-radius: 5px;
+        width:clamp(15rem, 5.0000rem + 20.0000vw, 20rem);
+        height: clamp(15rem, 23.6667rem + -13.3333vw, 17rem);
+       
+        padding:20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background: white;
+        box-shadow: -6px -6px 44px -35px rgba(0, 0, 0, 0.25), 6px 6px 44px -35px rgba(0, 0, 0, 0.25);
+        h2{
+            font-weight: U.$m-font-weight;
+            font-size: U.$n-font-size;
+            color: U.$Dark-blue;
+            padding:10px;
+        }
+        p{
+            font-size: U.$x-font-size;
+            padding:10px;
+            color:U.$hover-color;
+        }
+        div{
+            position:absolute;
+            top:-15%;
+            left:10%;
+            width: 70px;
+            height: 70px;
+            background: U.$primary-color2;
+            display: flex;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    .card1{
+            align-self: start;
+        }
+        .card2{
+            align-self: center;
+        }
+        .card3{
+            align-self: end;
+        }
+}
+
+@mixin tabletSectionCard {
+    height: 26rem;
+    .card{
+        padding:15px;
+        justify-content:center;
+
+       width: clamp(11rem, -2.4302rem + 35.7542vw, 14.5rem);
+       height:clamp(17rem, 10.2849rem + 18.9944vw, 19rem);
+       h2{
+           font-size: U.$sm-font-size;
+       }
+       p{
+           font-size: 12px;
+       }
+       div{
+           width:clamp(3.75rem, 1.6683rem + 5.8883vw, 4.37rem);
+           height:clamp(3.75rem, 1.6683rem + 5.8883vw, 4.37rem);
+           img{
+            width: clamp(1.8rem, -0.5503rem + 6.6480vw, 2.5rem);
+            height: clamp(1.8rem, -0.5503rem + 6.6480vw, 2.5rem);
+            }
+       }
+       
+    }
+}
+
+@mixin mediumSectionCard {
+    height: 60rem;
+    grid-template-columns: none;
+    grid-template-rows: repeat(3,1fr);
+    row-gap: 4rem;
+    .line{
+        position:absolute;
+        background: U.$primary-color1;
+        width: 10px;
+        height: 90%;
+        top:0%;
+    }
+    .card{
+        padding:15px;
+        justify-content:center;
+        width: 25rem;
+        height: 15rem;
+        text-align: center;
+       h2{
+           font-size: 20px;
+       }
+       p{
+           font-size: 16px;
+       }
+       div{
+           width: 4.37rem;
+           height: 4.37rem;
+           left:42%;
+           img{
+               width: 2.5rem;
+               height: 2.5rem;
+            }
+       }
+       
+    }
+}
+
+@mixin phoneSectionCard {
+    height: 65rem;
+    grid-template-columns: none;
+    grid-template-rows: repeat(3,1fr);
+    row-gap: 1rem;
+    .line{
+        position:absolute;
+        background: U.$primary-color1;
+        width: 10px;
+        height: 90%;
+        top:0%;
+        left:47%;
+    }
+    .card{
+        padding:15px;
+        justify-content:center;
+        width: clamp(18rem, 3.3211rem + 73.3945vw, 23rem);
+        height: clamp(17rem, 14.0642rem + 14.6789vw, 18rem);
+        text-align: center;
+       h2{
+           font-size: 21px;
+       }
+       p{
+           font-size: 16px;
+       }
+       div{
+           width: 4.37rem;
+           height: 4.37rem;
+           left:38%;
+           img{
+               width: 2.5rem;
+               height: 2.5rem;
+            }
+       }
+       
+    } 
+}
+
+@mixin  phoneSectionHeader {
+    h1{
+        font-size: 1.8rem;
+        padding: 20px;
+        color:U.$Dark-blue;
+    }
+    p{
+        color: U.$hover-color;
+        width: 60%;
+    }
+}

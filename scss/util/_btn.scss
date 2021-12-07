@@ -1,0 +1,10 @@
+@mixin makeBtn($w,$h) {
+    background:hsl(180, 66%, 49%);
+    border:none;
+    border-radius: 20px;
+    width: $w;
+    height: $h;
+    color:white;
+    font-weight: 900;
+    cursor: pointer;
+}
